@@ -1,0 +1,230 @@
+<div class="container-fluid">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" data-scroll href="#home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-scroll href="#novedades">Novedades</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-scroll href="#historia">Historias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-scroll href="#nosotros">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-scroll href="#conocenos">Conocenos</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>
+<br>
+<div class="container-fluid">
+    <div id="home" class="row align-items-center hero">
+        <div class="col-lg-3 offset-lg-2">
+            <p>Bajada</p>
+            <h1>Titulo Principal</h1>
+            <p>lore ipsum etc</p>
+        </div>
+    </div>
+</div>
+<br>
+<div id="novedades" class="row py-4">
+    <div class="col-md-5 offset-md-2 py-3">
+        <h2>Novedades</h2>
+
+        <ul class="lista-novedades">
+            {{#each novedades}}
+            <li>
+                <a href="javascript:void(0);" data-toggle="modal" data-target="#modal{{ id }}">
+                    <img src="{{imagen}}"> {{titulo}}
+                </a>
+            </li>
+            {{/each}} 
+        </ul>
+    </div>
+
+    <div class="col-md-3">
+        <div class="rounded py-3 testimonios">
+            <h2 class="text-center">Testimonios</h2>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonio">
+                            <h5>"La mejor birra del mundo!!"</h5>
+                            <p>Francisco, Monte Grande</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonio">
+                            <h5>"La mejor birra del mundo 2!!"</h5>
+                            <p>Gaston, Berazategui</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonio">
+                            <h5>"La mejor birra del mundo 3!!"</h5>
+                            <p>Jorge, Sourigues</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previa</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- inicio modal --}}
+{{#each novedades}}
+<div class="modal fade" id="modal{{id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" 
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <h5 class="modal-tittle text-center" id="staticBackdropLabel">
+                {{titulo}} 
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body textodelmodal">
+            <h6>
+                {{subtitulo}}
+                <img src="{{imagen}}" alt="{{subtitulo}}">
+                <p>{{cuerpo}}</p>
+            </h6>
+        </div>
+    </div>
+</div>
+{{/each}}
+{{!-- fin modal --}}
+<div id="historia" class="row align-items-center py-4">
+    <div class="col-lg-2 col-md-3 offset-lg-2 d-none d-sm-block">
+        <img src="images/historia_1.jpg" alt="historia 1" class="img-fluid">
+    </div>
+    <div class="col-lg-2 col-md-3 d-none d-sm-block">
+        <img src="images/historia_2.jpg" alt="historia 2" class="img-fluid">
+    </div>
+    <div class="col-12 d-sm-none">
+        <img src="images/historia_3.jpg" alt="historia 3" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-6 mt-4 mt-sm-0">
+        <h2>Historia</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In maiores, amet quis
+            accusamus nisi a veritatis mollitia tempora autem eius voluptatum maxime debitis
+            libero inventore temporibus reprehenderit quos labore dolores!
+        </p>
+    </div>
+</div>
+<div id="nosotros" class="row align-items-stretch my-3 staff py-4">
+    <div class="col-lg-8 offset-lg-2">
+        <h2>Nosotros</h2>
+        <div class="card-deck">
+            <div class="card">
+                <img src="images/nosotros01.jpg" class="card-img-top" alt="nosotros01">
+                <div class="card-body">
+                    <h5 class="card-title">Diana Reyes</h5>
+                    <p class="card-text">Un texto de ejemplo rápido, para construir
+                        en la carta y rellenar un poco el contenido.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/nosotros02.jpg" class="card-img-top" alt="nosotros02">
+                <div class="card-body">
+                    <h5 class="card-title">Gabriel Gomez</h5>
+                    <p class="card-text">Un texto de ejemplo rápido, para construir
+                        en la carta y rellenar un poco el contenido.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/nosotros03.jpg" class="card-img-top" alt="nosotros03">
+                <div class="card-body">
+                    <h5 class="card-title">Ezequiel Lopez</h5>
+                    <p class="card-text">Un texto de ejemplo rápido, para construir
+                        en la carta y rellenar un poco el contenido.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/nosotros04.jpg" class="card-img-top" alt="nosotros04">
+                <div class="card-body">
+                    <h5 class="card-title">Chris Maisner</h5>
+                    <p class="card-text">Un texto de ejemplo rápido, para construir
+                        en la carta y rellenar un poco el contenido.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="conocenos" class="row py-4">
+    <div class="col-md-4 offset-md-2">
+        <h2>Visitanos</h2>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.624966142026!2d-58.21766428556322!3d-34.765038973556976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a328d524153ce9%3A0x51c80ad6cf421f30!2sAv.%2014%2C%20Berazategui%2C%20Provincia%20de%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1ses!2sus!4v1648372800777!5m2!1ses!2sus"
+                style="border:0;" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="col-md-4 mt-4 mt-sm-0">
+        <h2>Contactanos</h2>
+        <form action="/" method="post">
+            <!--cuando se envia-->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="..." name="nombre">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" placeholder="..." name="apellido">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="ejemplo@tuemail.com" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="tel">Tel</label>
+                    <input type="text" class="form-control" id="tel" placeholder="..." name="tel">
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" rows="4" name="mensaje"></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        {{#if message}}
+        <p>{{message}}</p>
+        {{/if}}
+    </div>
+</div>
+<br>
+<footer>
+    <p class="text-center">Diseñado por Gaston Peralta 2020</p>
+</footer>
